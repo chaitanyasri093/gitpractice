@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh """
                     cd /var/lib/jenkins/workspace/terraformjob
-                    terraform destroy
+                    terraform destroy -y
                 """
             }
         }
