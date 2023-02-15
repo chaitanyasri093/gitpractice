@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh """
                     cd /var/lib/jenkins/workspace/terraformjob
-                    terraform destroy plan.${BUILD_NUMBER}
+                    terraform destroy
                 """
             }
         }
