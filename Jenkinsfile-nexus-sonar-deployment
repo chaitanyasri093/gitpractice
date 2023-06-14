@@ -25,28 +25,28 @@ pipeline{
                        [
                             artifactId: 'myweb', 
                             classifier: '', 
-                            file: "target/myweb-8.2.6-SNAPSHOT.war", 
+                            file: "target/myweb-1.0-SNAPSHOT.war", 
                             type: 'war'
                        ]
                   ], 
                   credentialsId: 'nexus3', 
                   groupId: 'in.javahome', 
-                  nexusUrl: '172.31.38.174:8081', 
+                  nexusUrl: '', 
                   nexusVersion: 'nexus3', 
                   protocol: 'http', 
                   repository: 'sample-snapshots', 
-                  version: '8.2.6-SNAPSHOT'  
+                  version: '1.0-SNAPSHOT'  
               }
             }
         stage("deploy-dev"){
             steps{
                 sshagent(['tomcat-new']) {
                 sh """
-                    scp -o StrictHostKeyChecking=no target/myweb-8.2.5.war  jenkins@192.168.1.80:/tomcatsoft/apache-tomcat-9.0.56/webapps
+                    scp -o StrictHostKeyChecking=no target/myweb-8.2.5.war  jenkins@ip:/tomcatsoft/apache-tomcat-9.0.56/webapps
                     
-                    ssh jenkins@192.168.1.80 /tomcatsoft/apache-tomcat-9.0.56/bin/shutdown.sh
+                    ssh jenkins@ip /tomcatsoft/apache-tomcat-9.0.56/bin/shutdown.sh
                     
-                    ssh jenkins@192.168.1.80 /tomcatsoft/apache-tomcat-9.0.56/bin/startup.sh
+                    ssh jenkins@ip /tomcatsoft/apache-tomcat-9.0.56/bin/startup.sh
                 
                 """
             }
