@@ -13,12 +13,7 @@ pipeline {
                 git credentialsId: 'chaitanyasri093', url: 'https://github.com/chaitanyasri093/gitpractice.git'
             }    
         }
-stages {
-        stage('test stage') { 
-            steps {
-               echo "this is just test stage"
-            }    
-        }
+
         stage('Terraform Ininitialization') {
             steps {
                 sh """
