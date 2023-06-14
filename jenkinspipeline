@@ -16,7 +16,7 @@ pipeline {
 stages {
         stage('test stage') { 
             steps {
-               echo "this is just a test stage"
+               echo "this is just test stage"
             }    
         }
         stage('Terraform Ininitialization') {
