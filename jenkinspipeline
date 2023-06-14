@@ -38,13 +38,5 @@ pipeline {
                 """
             }
         }
-         stage('Terraform destroy') {
-            steps {
-                sh """
-                    cd /var/lib/jenkins/workspace/terraformjob
-                    terraform destroy -y
-                """
-            }
-        }
     } 
     }
