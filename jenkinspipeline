@@ -36,10 +36,7 @@ pipeline {
                     cd /var/lib/jenkins/workspace/terraformjob
                     terraform apply plan.${BUILD_NUMBER}
                 """
-            }
-        }
-    } 
-    }
+      
     
     
     
